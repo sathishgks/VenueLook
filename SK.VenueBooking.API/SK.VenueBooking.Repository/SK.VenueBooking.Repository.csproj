@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SK.VenueBooking.Misc\SK.VenueBooking.Misc.csproj" />
     <ProjectReference Include="..\SK.VenueBooking.ORM\SK.VenueBooking.ORM.csproj" />
     <ProjectReference Include="..\SK.VenueBooking.RepositoryAbstraction\SK.VenueBooking.RepositoryAbstraction.csproj" />
   </ItemGroup>
