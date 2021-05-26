@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SK.VenueBooking.RepositoryAbstraction
+namespace SK.VenueBooking.Service
 {
-   public interface ITenantRepository
+   public interface ITenantService
     {
         public Task<List<TenantInfo>> GetTenants();
         public Task<List<TenantUserMap>> GetTenantUserMap();

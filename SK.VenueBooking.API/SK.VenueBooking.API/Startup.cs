@@ -38,9 +38,14 @@ namespace SK.VenueBooking.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Venue Booking", Version = "v1" });
             });
+            services.AddScoped<IDatabaseWrapper, CustomDapper>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IDatabaseWrapper, CustomDapper>();
+            services.AddScoped<ITenantRepository, TenantRepository>();
+            services.AddScoped<ITenantService, TenantService>();
+            services.AddScoped<IVenueRepository, VenueRepository>();
+            services.AddScoped<IVenueService, VenueService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

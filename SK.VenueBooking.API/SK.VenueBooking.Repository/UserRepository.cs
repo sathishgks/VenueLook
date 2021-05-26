@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using SK.VenueBooking.Misc;
 using SK.VenueBooking.Model;
 using SK.VenueBooking.ORM;
 using SK.VenueBooking.RepositoryAbstraction;
@@ -22,8 +23,8 @@ namespace SK.VenueBooking.Repository
         public async Task<UserInfo> GetUserInfo(string username)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("@UserName", username);
-            var result = _databaseWrapper.Get<UserInfo>("GetUserInfo",dbPara,CommandType.StoredProcedure);
+            dbPara.Add(VenueConstants.UserName, username);
+            var result = _databaseWrapper.Get<UserInfo>(VenueConstants.GetUserInfo,dbPara,CommandType.StoredProcedure);
             return await Task.FromResult<UserInfo>(result);
         }
 

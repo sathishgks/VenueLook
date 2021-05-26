@@ -9,7 +9,7 @@ namespace SK.VenueBooking.RepositoryAbstraction
 {
     public interface IVenueRepository
     {
-        public List<VenueInfo> GetVenueDetails();
-        public List<BookingInfo> GetBookingetails();
+        public Task<List<VenueInfo>> GetVenueDetails();
+        public Task<List<BookingInfo>> GetBookingetails();
     }
 }

@@ -10,12 +10,12 @@ namespace SK.VenueBooking.Repository
 {
     public class VenueRepository : IVenueRepository
     {
-        public List<BookingInfo> GetBookingetails()
+        public async Task<List<BookingInfo>> GetBookingetails()
         {
             throw new NotImplementedException();
         }
 
-        public List<VenueInfo> GetVenueDetails()
+        public async Task<List<VenueInfo>> GetVenueDetails()
         {
             throw new NotImplementedException();
         }

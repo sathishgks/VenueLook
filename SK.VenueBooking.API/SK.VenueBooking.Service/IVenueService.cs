@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SK.VenueBooking.Service
 {
-    public class VenueService : IVenueService
+    public interface IVenueService
     {
     }
 }
