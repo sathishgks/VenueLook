@@ -3,19 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.API", "SK.VenueBooking.API\SK.VenueBooking.API.csproj", "{D52C326A-1315-4E96-BF25-30233A7425BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SK.VenueBooking.API", "SK.VenueBooking.API\SK.VenueBooking.API.csproj", "{D52C326A-1315-4E96-BF25-30233A7425BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{9B5C6ABD-289D-4D9E-912B-70D74DFA08F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.Model", "SK.VenueBooking.Model\SK.VenueBooking.Model.csproj", "{B66C78A4-D918-4ECB-B5B7-52D09E78668A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SK.VenueBooking.Model", "SK.VenueBooking.Model\SK.VenueBooking.Model.csproj", "{B66C78A4-D918-4ECB-B5B7-52D09E78668A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepositoryAbstraction", "RepositoryAbstraction", "{687B14F1-9619-457F-BFB4-CC03D9126B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.RepositoryAbstraction", "SK.VenueBooking.RepositoryAbstraction\SK.VenueBooking.RepositoryAbstraction.csproj", "{C867C7AD-5B1A-43AC-9436-1B2BD276FC63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SK.VenueBooking.RepositoryAbstraction", "SK.VenueBooking.RepositoryAbstraction\SK.VenueBooking.RepositoryAbstraction.csproj", "{C867C7AD-5B1A-43AC-9436-1B2BD276FC63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{B39FD9D9-897A-4336-B69C-459D5351C19A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.Repository", "SK.VenueBooking.Repository\SK.VenueBooking.Repository.csproj", "{AAD36652-6D7B-41F2-99A3-9903F18E4FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SK.VenueBooking.Repository", "SK.VenueBooking.Repository\SK.VenueBooking.Repository.csproj", "{AAD36652-6D7B-41F2-99A3-9903F18E4FEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{112669D8-03C0-48E2-AF4B-A0C5DEF083A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.Service", "SK.VenueBooking.Service\SK.VenueBooking.Service.csproj", "{DEAF414F-B4CA-4D49-B206-DF844BD0B278}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ORM", "ORM", "{57F1AACE-0AD4-4203-9948-F7E634A05869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.ORM", "SK.VenueBooking.ORM\SK.VenueBooking.ORM.csproj", "{65F6D400-75D3-4524-8341-5B6F85D5E6EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +47,14 @@ Global
 		{AAD36652-6D7B-41F2-99A3-9903F18E4FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAD36652-6D7B-41F2-99A3-9903F18E4FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAD36652-6D7B-41F2-99A3-9903F18E4FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEAF414F-B4CA-4D49-B206-DF844BD0B278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAF414F-B4CA-4D49-B206-DF844BD0B278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAF414F-B4CA-4D49-B206-DF844BD0B278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAF414F-B4CA-4D49-B206-DF844BD0B278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F6D400-75D3-4524-8341-5B6F85D5E6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F6D400-75D3-4524-8341-5B6F85D5E6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F6D400-75D3-4524-8341-5B6F85D5E6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F6D400-75D3-4524-8341-5B6F85D5E6EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +63,8 @@ Global
 		{B66C78A4-D918-4ECB-B5B7-52D09E78668A} = {9B5C6ABD-289D-4D9E-912B-70D74DFA08F9}
 		{C867C7AD-5B1A-43AC-9436-1B2BD276FC63} = {687B14F1-9619-457F-BFB4-CC03D9126B92}
 		{AAD36652-6D7B-41F2-99A3-9903F18E4FEF} = {B39FD9D9-897A-4336-B69C-459D5351C19A}
+		{DEAF414F-B4CA-4D49-B206-DF844BD0B278} = {112669D8-03C0-48E2-AF4B-A0C5DEF083A9}
+		{65F6D400-75D3-4524-8341-5B6F85D5E6EA} = {57F1AACE-0AD4-4203-9948-F7E634A05869}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC9FC4DA-76B7-4368-A769-20C7D7989053}

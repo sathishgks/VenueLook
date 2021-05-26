@@ -10,6 +10,6 @@ namespace SK.VenueBooking.Model
     {
         string UserId;
         string UserName;
-        List<string> TenantConnection;
+        List<string> TenantName;
     }
 }
