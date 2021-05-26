@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Caching.Memory;
 using SK.VenueBooking.Misc;
 using SK.VenueBooking.Model;
 using SK.VenueBooking.ORM;
@@ -15,20 +16,33 @@ namespace SK.VenueBooking.Repository
    public class TenantRepository : ITenantRepository
     {
         private readonly IDatabaseWrapper _databaseWrapper;
-        public TenantRepository(IDatabaseWrapper databaseWrapper)
+        private readonly IMemoryCache _memoryCache;
+
+        public TenantRepository(IDatabaseWrapper databaseWrapper, IMemoryCache memoryCache)
         {
             _databaseWrapper = databaseWrapper;
+            _memoryCache = memoryCache;
         }
-        public async Task<List<TenantInfo>> GetTenants()
+        private async Task<List<TenantInfo>> GetTenants()
         {
-            var result = _databaseWrapper.Get<List<TenantInfo>>(VenueConstants.GetTenantInfo, null, CommandType.StoredProcedure);
-            return await Task.FromResult<List<TenantInfo>>(result);
+            var result = _databaseWrapper.GetAll<TenantInfo>(VenueConstants.GetTenantInfo, null, CommandType.StoredProcedure);
+            return await Task.FromResult(result);
         }
 
-        public async Task<List<TenantUserMap>> GetTenantUserMap()
+        private async Task<List<TenantUserMap>> GetTenantUserMap()
         {
-            var result = _databaseWrapper.Get<List<TenantUserMap>>(VenueConstants.GetUserTenantMap, null, CommandType.StoredProcedure);
+            var result = _databaseWrapper.GetAll<TenantUserMap>(VenueConstants.GetUserTenantMap, null, CommandType.StoredProcedure);
             return await Task.FromResult<List<TenantUserMap>>(result);
+        }
+
+        public async Task LoadTenantUserCache()
+        {
+            var tenantinfo = await GetTenants();
+            if (_memoryCache?.Get(VenueConstants.TenantCache) != null)
+                _memoryCache.Set<List<TenantInfo>>(VenueConstants.TenantCache, tenantinfo);
+            var tenantusermap = await GetTenantUserMap();
+            if (_memoryCache?.Get(VenueConstants.UserTenantCache) != null)
+                _memoryCache.Set<List<TenantUserMap>>(VenueConstants.UserTenantCache, tenantusermap);
         }
     }
 }

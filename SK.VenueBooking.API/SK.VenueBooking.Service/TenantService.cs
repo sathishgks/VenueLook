@@ -16,14 +16,10 @@ namespace SK.VenueBooking.Service
         {
             _tenantRepository = tenantRepository;
         }
-        public async Task<List<TenantInfo>> GetTenants()
-        {
-            return await _tenantRepository?.GetTenants();
-        }
 
-        public async Task<List<TenantUserMap>> GetTenantUserMap()
+        public async Task LoadTenantUserCache()
         {
-            return await _tenantRepository?.GetTenantUserMap();
+           await _tenantRepository?.LoadTenantUserCache();
         }
     }
 }

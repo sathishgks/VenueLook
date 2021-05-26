@@ -1,5 +1,8 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
+using SK.VenueBooking.Misc;
+using SK.VenueBooking.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,35 +17,47 @@ namespace SK.VenueBooking.ORM
     public class CustomDapper : IDatabaseWrapper
     {
         private readonly IConfiguration _config;
+        private readonly IMemoryCache _memoryCache;
         private string Connectionstring = "DefaultConnection";
 
-        public CustomDapper(IConfiguration config)
+        public CustomDapper(IConfiguration config, IMemoryCache memoryCache)
         {
             _config = config;
+            _memoryCache = memoryCache;
         }
       
         public T Get<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             return db.Query<T>(sp, parms, commandType: commandType).FirstOrDefault();
+        }
+
+        private string GetConnectionString()
+        {
+            // TO DO
+            //var map = _memoryCache?.Get<List<TenantUserMap>>(VenueConstants.UserTenantCache);
+            //var connstring = _memoryCache?.Get<TenantInfo>(map?.FirstOrDefault()?.TenantName);
+            //return (connstring != null && connstring.TenantName != null )? connstring.TenantName :_config.GetConnectionString(Connectionstring);
+
+            return _config.GetConnectionString(Connectionstring);
         }
 
         public List<T> GetAll<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             return db.Query<T>(sp, parms, commandType: commandType).ToList();
         }
 
         public DbConnection GetDbconnection()
         {
-            return new SqlConnection(_config.GetConnectionString(Connectionstring));
+            return new SqlConnection(GetConnectionString());
 
         }
 
         public T Insert<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
             T result;
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             try
             {
                 if (db.State == ConnectionState.Closed)
@@ -86,7 +101,7 @@ namespace SK.VenueBooking.ORM
         public T Update<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
             T result;
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             try
             {
                 if (db.State == ConnectionState.Closed)

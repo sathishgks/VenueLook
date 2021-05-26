@@ -38,6 +38,7 @@ namespace SK.VenueBooking.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Venue Booking", Version = "v1" });
             });
+            services.AddMemoryCache();
             services.AddScoped<IDatabaseWrapper, CustomDapper>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
@@ -49,7 +50,7 @@ namespace SK.VenueBooking.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ITenantService tenantService)
         {
             if (env.IsDevelopment())
             {
@@ -63,7 +64,7 @@ namespace SK.VenueBooking.API
             app.UseRouting();
 
             app.UseAuthorization();
-
+            tenantService.LoadTenantUserCache();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

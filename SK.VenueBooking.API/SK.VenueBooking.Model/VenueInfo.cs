@@ -8,9 +8,11 @@ namespace SK.VenueBooking.Model
 {
     public class VenueInfo : AuditField
     {
-        public string HallId { get; set; }
+        public Guid HallId { get; set; }
         public string HallName { get; set; }
         public string Location { get; set; }
         public string Price { get; set; }
+
+        public string TenantName { get; set; }
     }
 }

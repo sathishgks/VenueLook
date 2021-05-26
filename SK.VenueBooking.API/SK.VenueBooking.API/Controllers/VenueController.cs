@@ -22,6 +22,7 @@ namespace SK.VenueBooking.API.Controllers
             _userService = userService;
         }
 
+
         [HttpGet]
         public async Task<IActionResult> GetUserInfo()
         {

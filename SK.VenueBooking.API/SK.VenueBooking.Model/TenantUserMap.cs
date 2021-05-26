@@ -10,5 +10,7 @@ namespace SK.VenueBooking.Model
     {
         public string TenantName { get; set; }
         public string UserName { get; set; }
+
+        public int RoleId { get; set; }
     }
 }

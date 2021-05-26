@@ -9,7 +9,6 @@ namespace SK.VenueBooking.Service
 {
    public interface ITenantService
     {
-        public Task<List<TenantInfo>> GetTenants();
-        public Task<List<TenantUserMap>> GetTenantUserMap();
+        public Task LoadTenantUserCache();
     }
 }
