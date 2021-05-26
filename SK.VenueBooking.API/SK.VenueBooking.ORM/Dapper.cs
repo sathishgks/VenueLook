@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace SK.VenueBooking.ORM
 {
-    public class Dapper : IDatabase
+    public class CustomDapper : IDatabaseWrapper
     {
         private readonly IConfiguration _config;
         private string Connectionstring = "DefaultConnection";
 
-        public Dapper(IConfiguration config)
+        public CustomDapper(IConfiguration config)
         {
             _config = config;
         }

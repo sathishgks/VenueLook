@@ -1,11 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="linq2db" Version="3.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SK.VenueBooking.Model\SK.VenueBooking.Model.csproj" />
+    <ProjectReference Include="..\SK.VenueBooking.ORM\SK.VenueBooking.ORM.csproj" />
+    <ProjectReference Include="..\SK.VenueBooking.RepositoryAbstraction\SK.VenueBooking.RepositoryAbstraction.csproj" />
+    <ProjectReference Include="..\SK.VenueBooking.Repository\SK.VenueBooking.Repository.csproj" />
+    <ProjectReference Include="..\SK.VenueBooking.Service\SK.VenueBooking.Service.csproj" />
   </ItemGroup>
 
 </Project>

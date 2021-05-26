@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SK.VenueBooking.ORM
 {
-    interface IDatabase : IDisposable
+    public interface IDatabaseWrapper : IDisposable
     {
         DbConnection GetDbconnection();
         T Get<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure);

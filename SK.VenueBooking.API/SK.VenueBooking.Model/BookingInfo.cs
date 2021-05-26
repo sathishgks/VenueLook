@@ -8,8 +8,8 @@ namespace SK.VenueBooking.Model
 {
     public class BookingInfo : AuditField
     {
-        string BookingId;
-        string HallId;
-        DateTime BookingDate;
+        public string BookingId { get; set; }
+        public string HallId { get; set; }
+        public DateTime BookingDate { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using LinqToDB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SK.VenueBooking.ORM;
+using SK.VenueBooking.Repository;
+using SK.VenueBooking.RepositoryAbstraction;
+using SK.VenueBooking.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +33,14 @@ namespace SK.VenueBooking.API
         {
 
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SK.VenueBooking.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Venue Booking", Version = "v1" });
             });
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDatabaseWrapper, CustomDapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

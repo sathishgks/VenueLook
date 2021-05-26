@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SK.VenueBooking.RepositoryAbstraction
+namespace SK.VenueBooking.Service
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         public Task<UserInfo> GetUserInfo(string username);
     }

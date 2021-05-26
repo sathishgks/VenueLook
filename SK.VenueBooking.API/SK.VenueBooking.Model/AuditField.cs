@@ -8,6 +8,6 @@ namespace SK.VenueBooking.Model
 {
     public class AuditField
     {
-        string Modifiedby;
+       public string Modifiedby { get; set; }
     }
 }

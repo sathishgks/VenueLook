@@ -8,8 +8,8 @@ namespace SK.VenueBooking.Model
 {
     public class UserInfo : AuditField
     {
-        string UserId;
-        string UserName;
-        List<string> TenantName;
+       public Guid UserId { get; set; }
+       public string UserName { get; set; }
+      //  List<string> TenantName;
     }
 }
