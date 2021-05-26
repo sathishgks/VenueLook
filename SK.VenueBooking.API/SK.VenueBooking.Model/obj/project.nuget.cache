@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zUy00m1OA4k6xOaj5lBOTmcoGvhdMjHqkyBNUoaTS5aSu1XtXkh+POcR9GlgcWW0b/hcpEQJp/4XFrCy5Nh8wg==",
+  "dgSpecHash": "08DBNmK/3R29P7JSlt8K41SmXnxeqeWX2dTZKXP9jNmyshyIDzfLsIvNtuO452pfwyvAkqxFX/1wM9qUjC7PJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.Model\\SK.VenueBooking.Model.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.Model\\SK.VenueBooking.Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

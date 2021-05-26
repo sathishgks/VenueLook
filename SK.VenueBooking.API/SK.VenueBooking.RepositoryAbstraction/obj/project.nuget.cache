@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mlzTLRV8N6OnSCrsBPqns0H9E9nW+htp9EJwssyD4UvpYsIEOBUHT/Za9CTrOVjZmaI9AmKHzoCUCfNBrP4FGw==",
+  "dgSpecHash": "gjn0lNmfCv2IAOHtR73xodbTW1cVuexlfaHkfZAy641qX7iFLJi9/723AAMMn37RSWte6BW8jXjtQm/r10KN0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.RepositoryAbstraction\\SK.VenueBooking.RepositoryAbstraction.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.RepositoryAbstraction\\SK.VenueBooking.RepositoryAbstraction.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj": {}
+    "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj": {
+    "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj",
         "projectName": "SK.VenueBooking.API",
-        "projectPath": "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj",
+        "projectPath": "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.API\\SK.VenueBooking.API.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\source\\repos\\SK.VenueBooking.API\\SK.VenueBooking.API\\obj\\",
+        "outputPath": "C:\\Users\\admin\\Source\\Repos\\sathishgks\\VenueLook\\SK.VenueBooking.API\\SK.VenueBooking.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
