@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SK.VenueBooking.RepositoryAbstraction
 {
-    public interface IVenueRepository
+    public interface IBookRepostitory
     {
-        public void AddVenue(VenueInfo venueInfo,string username);
-        public Task<List<VenueInfo>> GetVenueDetails();
+        public void BookVenue(BookingInfo bookInfo,string username);
+        
     }
 }

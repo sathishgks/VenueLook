@@ -52,6 +52,8 @@ namespace SK.VenueBooking.API
             services.AddScoped<IVenueService, VenueService>();
             services.AddScoped<ITenantRepository, TenantRepository>();
             services.AddScoped<ITenantService, TenantService>();
+            services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IBookRepostitory, BookRepository>();
 
         }
 

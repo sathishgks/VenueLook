@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace SK.VenueBooking.Service
 {
-    public interface IVenueService
+   public interface IBookService
     {
-        public void AddVenue(VenueInfo venueInfo, string username);
-        public Task<List<VenueInfo>> GetVenueDetails();
+        public void BookVenue(BookingInfo bookInfo, string username);
     }
 }
