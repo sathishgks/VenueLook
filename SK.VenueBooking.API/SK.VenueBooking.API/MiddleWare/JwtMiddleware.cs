@@ -42,6 +42,7 @@ namespace SK.VenueBooking.API.MiddleWare
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
 
+                // todo - to load into cache
                 var configManager = new ConfigurationManager<OpenIdConnectConfiguration>($"{_appSettings.Issuer}/.well-known/openid-configuration", new OpenIdConnectConfigurationRetriever());
 
                 var openidconfig = configManager.GetConfigurationAsync().Result;
