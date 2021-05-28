@@ -44,8 +44,16 @@ namespace SK.VenueBooking.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetHallInfo()
+        public async Task<IActionResult> GetHallInfo([FromBody]string runtimetenant)
         {
+            if(!string.IsNullOrWhiteSpace(runtimetenant))
+            {
+                if (DataStore.datastorecollection.ContainsKey(VenueConstants.AdminRunTimeTenant))
+                {
+                    DataStore.datastorecollection.Remove(VenueConstants.AdminRunTimeTenant);
+                }
+                DataStore.datastorecollection.Add(VenueConstants.AdminRunTimeTenant, runtimetenant);
+            }
             var hall = await _venueService.GetVenueDetails();
             return Ok(hall);
         }
