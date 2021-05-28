@@ -9,6 +9,6 @@ namespace SK.VenueBooking.RepositoryAbstraction
 {
    public interface ITenantRepository
     {
-        public Task LoadTenantUserCache();
+        public void LoadTenantUserCache();
     }
 }

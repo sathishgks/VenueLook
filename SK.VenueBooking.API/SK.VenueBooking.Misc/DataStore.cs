@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,4 +13,5 @@ namespace SK.VenueBooking.Misc
         // Need to implement cache Mechanism like Redis
         public static Dictionary<string, object> datastorecollection = new Dictionary<string, object>();
     }
+
 }

@@ -23,6 +23,7 @@ namespace SK.VenueBooking.API.Controllers
         private readonly IBookService _bookService;
         private readonly IVenueService _venueService;
         private readonly IHttpContextAccessor _httpContextAccessor;
+      
 
         public VenueController(IUserService userService,IBookService bookService,IVenueService venueService,IHttpContextAccessor httpContextAccessor)
         {
@@ -30,6 +31,7 @@ namespace SK.VenueBooking.API.Controllers
             _bookService = bookService;
             _venueService = venueService;
             _httpContextAccessor = httpContextAccessor;
+            getusername();
         }
 
 
@@ -44,8 +46,8 @@ namespace SK.VenueBooking.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetHallInfo()
         {
-            var user = await _venueService.GetVenueDetails();
-            return Ok(user);
+            var hall = await _venueService.GetVenueDetails();
+            return Ok(hall);
         }
 
         [HttpPost]
@@ -64,7 +66,13 @@ namespace SK.VenueBooking.API.Controllers
         }
         private string getusername()
         {
-            return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            var loggeduser = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            if(DataStore.datastorecollection.ContainsKey(VenueConstants.Loggedinuser))
+            {
+                DataStore.datastorecollection.Remove(VenueConstants.Loggedinuser);
+            }
+            DataStore.datastorecollection.Add(VenueConstants.Loggedinuser, loggeduser);
+            return loggeduser;
         }
     }
 }

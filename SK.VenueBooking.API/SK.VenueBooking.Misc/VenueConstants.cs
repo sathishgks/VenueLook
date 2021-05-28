@@ -16,6 +16,7 @@ namespace SK.VenueBooking.Misc
         public const string InsertHallInfo = "InsertHallInfo";
         public const string InserBookInfo = "InserBookInfo";
         public const string GetHallInfo = "GetHallInfo";
+        public const string Loggedinuser = "Loggedinuser";
 
         // Proc params
 

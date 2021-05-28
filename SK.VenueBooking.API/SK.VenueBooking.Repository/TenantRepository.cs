@@ -23,22 +23,23 @@ namespace SK.VenueBooking.Repository
         {
             _databaseWrapper = databaseWrapper;
         }
-        private async Task<List<TenantInfo>> GetTenants()
+        private List<TenantInfo> GetTenants()
         {
             var result = _databaseWrapper.GetAll<TenantInfo>(VenueConstants.GetTenantInfo, null,true, CommandType.StoredProcedure);
-            return await Task.FromResult(result);
+            return result;
         }
 
-        private async Task<List<TenantUserMap>> GetTenantUserMap()
+        private List<TenantUserMap> GetTenantUserMap()
         {
             var result = _databaseWrapper.GetAll<TenantUserMap>(VenueConstants.GetUserTenantMap, null,true, CommandType.StoredProcedure);
-            return await Task.FromResult<List<TenantUserMap>>(result);
+            return result;
         }
 
-        public async Task LoadTenantUserCache()
+        public void LoadTenantUserCache()
         {
-            var tenantusermap = await GetTenantUserMap();
-            var tenantinfo = await GetTenants();
+            var tenantusermap = GetTenantUserMap();
+            var tenantinfo = GetTenants();
+           
             if (!DataStore.datastorecollection.ContainsKey(VenueConstants.TenantCache))
             { DataStore.datastorecollection.Add(VenueConstants.TenantCache, tenantinfo); }
             if (!DataStore.datastorecollection.ContainsKey(VenueConstants.UserTenantCache))

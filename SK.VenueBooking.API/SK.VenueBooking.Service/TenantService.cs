@@ -17,9 +17,9 @@ namespace SK.VenueBooking.Service
             _tenantRepository = tenantRepository;
         }
 
-        public async Task LoadTenantUserCache()
+        public void LoadTenantUserCache()
         {
-           await _tenantRepository?.LoadTenantUserCache();
+            _tenantRepository?.LoadTenantUserCache();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace SK.VenueBooking.Service
 {
    public interface ITenantService
     {
-        public Task LoadTenantUserCache();
+        public void LoadTenantUserCache();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using SK.VenueBooking.Misc;
@@ -17,38 +18,43 @@ namespace SK.VenueBooking.ORM
     public class CustomDapper : IDatabaseWrapper
     {
         private readonly IConfiguration _config;
-       
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CustomDapper(IConfiguration config)
+        public CustomDapper(IConfiguration config, IHttpContextAccessor httpContextAccessor)
         {
             _config = config;
+            _httpContextAccessor = httpContextAccessor;
         }
       
         public T Get<T>(string sp, DynamicParameters parms, bool isCatalog = false, CommandType commandType = CommandType.StoredProcedure)
         {
-            using IDbConnection db = new SqlConnection(GetConnectionString(parms.Get<string>(VenueConstants.UserName),isCatalog));
+            using IDbConnection db = new SqlConnection(GetConnectionString(isCatalog));
             return db.Query<T>(sp, parms, commandType: commandType).FirstOrDefault();
         }
 
-        private string GetConnectionString(string username, bool isCatalog = false)
+        private string GetConnectionString(bool isCatalog = false)
         {
 
             // Need to Refactor
             string connstring = String.Empty;
-            if (DataStore.datastorecollection != null && DataStore.datastorecollection.Count > 0)
+            var username = getusername();
+            if (DataStore.datastorecollection != null && DataStore.datastorecollection.Count > 0 && DataStore.datastorecollection.ContainsKey(VenueConstants.UserTenantCache)&& !string.IsNullOrWhiteSpace(username))
             {
                 var map = DataStore.datastorecollection[VenueConstants.UserTenantCache] as List<TenantUserMap>;
                 TenantInfo tenantInfo = new TenantInfo();
-                TenantUserMap usermap = new TenantUserMap();
-                usermap = map?.Where(x => x.UserName == username) as TenantUserMap;
+               // TenantUserMap usermap = new TenantUserMap();
+               var usermap = map?.Where(x => x.UserName == username).FirstOrDefault();
                 if(usermap.RoleId==1)
                 {
                     connstring = (isCatalog) ? _config.GetConnectionString(VenueConstants.Connectionstring) : GetAdminUserTenant(username);
                 }
                 else
                 {
-                    tenantInfo = DataStore.datastorecollection[usermap.TenantName] as TenantInfo;
-                    connstring = tenantInfo.Connection;
+                    var tenantinfo = DataStore.datastorecollection[VenueConstants.TenantCache] as List<TenantInfo>;
+                    var tenant = tenantinfo?.Where(x => x.TenantName == usermap.TenantName).FirstOrDefault();
+
+                  //  tenantInfo = DataStore.datastorecollection[usermap.TenantName] as TenantInfo;
+                    connstring = tenant.Connection;
                 }
             }
             return (!string.IsNullOrWhiteSpace(connstring)) ? connstring : _config.GetConnectionString(VenueConstants.Connectionstring);
@@ -69,22 +75,26 @@ namespace SK.VenueBooking.ORM
 
         }
 
+        private string getusername()
+        {
+            return (DataStore.datastorecollection.ContainsKey(VenueConstants.Loggedinuser))? DataStore.datastorecollection[VenueConstants.Loggedinuser].ToString():string.Empty;
+        }
         public List<T> GetAll<T>(string sp, DynamicParameters parms, bool isCatalog = false, CommandType commandType = CommandType.StoredProcedure)
         {
-            using IDbConnection db = new SqlConnection(GetConnectionString(null));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             return db.Query<T>(sp, parms, commandType: commandType).ToList();
         }
 
         public DbConnection GetDbconnection()
         {
-            return new SqlConnection(GetConnectionString(null));
+            return new SqlConnection(GetConnectionString());
 
         }
 
         public T Insert<T>(string sp, DynamicParameters parms, bool isCatalog = false, CommandType commandType = CommandType.StoredProcedure)
         {
             T result;
-            using IDbConnection db = new SqlConnection(GetConnectionString(null));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             try
             {
                 if (db.State == ConnectionState.Closed)
@@ -128,7 +138,7 @@ namespace SK.VenueBooking.ORM
         public T Update<T>(string sp, DynamicParameters parms, bool isCatalog = false, CommandType commandType = CommandType.StoredProcedure)
         {
             T result;
-            using IDbConnection db = new SqlConnection(GetConnectionString(null));
+            using IDbConnection db = new SqlConnection(GetConnectionString());
             try
             {
                 if (db.State == ConnectionState.Closed)
