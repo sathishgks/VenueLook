@@ -27,7 +27,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SK.VenueBooking.ORM", "SK.V
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{C2448EC3-68D1-4935-897D-DDB100832D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK.VenueBooking.Misc", "SK.VenueBooking.Misc\SK.VenueBooking.Misc.csproj", "{9E5651FC-C76C-4172-8C44-9B74B7D7B1EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SK.VenueBooking.Misc", "SK.VenueBooking.Misc\SK.VenueBooking.Misc.csproj", "{9E5651FC-C76C-4172-8C44-9B74B7D7B1EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostManCollection", "PostManCollection", "{AE09A75D-A8CA-4381-8E3F-A2544ED00CF5}"
+	ProjectSection(SolutionItems) = preProject
+		Backup.postman_dump.json = Backup.postman_dump.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
