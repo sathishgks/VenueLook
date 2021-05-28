@@ -26,7 +26,7 @@ namespace SK.VenueBooking.Repository
             dbPara.Add(VenueConstants.HallId, bookInfo.HallId);
             dbPara.Add(VenueConstants.BookingDate, bookInfo.BookingDate);
             dbPara.Add(VenueConstants.CreatedBy, username);
-            _databaseWrapper.Insert<VenueInfo>(VenueConstants.InsertHallInfo, dbPara, false, CommandType.StoredProcedure);
+            _databaseWrapper.Insert<VenueInfo>(VenueConstants.InserBookInfo, dbPara, false, CommandType.StoredProcedure);
         }
 
     }

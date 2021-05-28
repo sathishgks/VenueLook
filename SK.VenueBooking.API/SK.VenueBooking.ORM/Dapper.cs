@@ -64,14 +64,11 @@ namespace SK.VenueBooking.ORM
         private string GetAdminUserTenant(string username)
         {
            // Need to refactor
-            TenantInfo tenantInfo = new TenantInfo();
-            var runTimeTenant = DataStore.datastorecollection[VenueConstants.AdminRunTimeTenant] as List<RunTimeTenant>;
-            var rTenant = runTimeTenant?.Where(x => x.UserName == username) as RunTimeTenant;
-            if (rTenant != null)
-            {
-                tenantInfo = DataStore.datastorecollection[rTenant?.Tenant] as TenantInfo;
-            }
-            return tenantInfo.Connection;
+         
+            var runTimeTenant = DataStore.datastorecollection[VenueConstants.AdminRunTimeTenant] as string;
+            var tenantinfo = DataStore.datastorecollection[VenueConstants.TenantCache] as List<TenantInfo>;
+            var tenant = tenantinfo?.Where(x => x.TenantName == runTimeTenant).FirstOrDefault();
+            return tenant.Connection;
 
         }
 

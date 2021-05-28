@@ -51,18 +51,22 @@ namespace SK.VenueBooking.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHall(VenueInfo venueInfo,string tenant)
+        public async Task<IActionResult> CreateHall([FromBody]VenueInfo venueInfo)
         {
-            DataStore.datastorecollection.Add(VenueConstants.AdminRunTimeTenant,tenant);
+            if (DataStore.datastorecollection.ContainsKey(VenueConstants.AdminRunTimeTenant))
+            {
+                DataStore.datastorecollection.Remove(VenueConstants.AdminRunTimeTenant);
+            }
+            DataStore.datastorecollection.Add(VenueConstants.AdminRunTimeTenant,venueInfo.TenantName);
             _venueService.AddVenue(venueInfo,getusername());
-            return Ok();
+            return StatusCode(201);
         }
 
         [HttpPost]
-        public async Task<IActionResult> BookHall(BookingInfo bookinginfo)
+        public async Task<IActionResult> BookHall([FromBody]BookingInfo bookinginfo)
         {
             _bookService.BookVenue(bookinginfo, getusername());
-            return Ok();
+            return StatusCode(201);
         }
         private string getusername()
         {
