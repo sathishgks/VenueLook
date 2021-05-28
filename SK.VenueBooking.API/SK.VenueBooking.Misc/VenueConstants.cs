@@ -11,6 +11,8 @@ namespace SK.VenueBooking.Misc
         public const string GetTenantInfo = "GetTenantInfo";
         public const string TenantCache = "TenantCache";
         public const string UserTenantCache = "UserTenantCache";
+        public const string Connectionstring = "DefaultConnection";
+        public const string AdminRunTimeTenant = "AdminRunTimeTenant";
 
     }
 

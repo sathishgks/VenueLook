@@ -10,7 +10,7 @@ namespace SK.VenueBooking.Model
     {
         public Guid TenantId { get; set; }
         public string TenantName { get; set; }
-        public string TenantConnection { get; set; }
+        public string Connection { get; set; }
 
     }
 }

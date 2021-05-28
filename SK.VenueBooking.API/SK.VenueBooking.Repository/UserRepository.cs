@@ -24,7 +24,7 @@ namespace SK.VenueBooking.Repository
         {
             var dbPara = new DynamicParameters();
             dbPara.Add(VenueConstants.UserName, username);
-            var result = _databaseWrapper.Get<UserInfo>(VenueConstants.GetUserInfo,dbPara,CommandType.StoredProcedure);
+            var result = _databaseWrapper.Get<UserInfo>(VenueConstants.GetUserInfo,dbPara,true,CommandType.StoredProcedure);
             return await Task.FromResult<UserInfo>(result);
         }
 

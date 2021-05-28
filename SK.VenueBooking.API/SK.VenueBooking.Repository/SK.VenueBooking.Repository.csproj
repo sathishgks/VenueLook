@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SK.VenueBooking.Misc\SK.VenueBooking.Misc.csproj" />
     <ProjectReference Include="..\SK.VenueBooking.ORM\SK.VenueBooking.ORM.csproj" />
     <ProjectReference Include="..\SK.VenueBooking.RepositoryAbstraction\SK.VenueBooking.RepositoryAbstraction.csproj" />
