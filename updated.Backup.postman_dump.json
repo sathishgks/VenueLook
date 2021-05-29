@@ -1,0 +1,323 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+			"uid": "0-b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+			"name": "VenueBooking",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"600a6d01-52f6-4a10-90c4-d8910ba864ec",
+				"41325f75-783c-444c-be56-f264c4990964",
+				"3648840a-011c-4b26-9553-0c32ab0302b0",
+				"63f2ed83-331f-41df-9f70-dbc57ae34eef",
+				"38e672ff-9cf7-4561-80b6-863ce05792b6"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"createdAt": "2021-05-27T06:04:11.798Z",
+			"folders": [],
+			"requests": [
+				{
+					"id": "3648840a-011c-4b26-9553-0c32ab0302b0",
+					"uid": "0-3648840a-011c-4b26-9553-0c32ab0302b0",
+					"name": "https://login.microsoftonline.com/{{tenantid}}/oauth2/authorize?client_id={{clientid}}&response_type=code&response_mode=query&prompt=admin_consent&resource_id={{appIdUri}}",
+					"url": "https://login.microsoftonline.com/{{tenantid}}/oauth2/authorize?client_id={{clientid}}&response_type=codet&resource_id={{appIdUri}}",
+					"description": "Get Code",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "client_id",
+							"value": "{{clientid}}",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "response_type",
+							"value": "codet",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "resource_id",
+							"value": "{{appIdUri}}",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": {
+						"type": "oauth2",
+						"oauth2": [
+							{
+								"key": "resource",
+								"value": {
+									"d2a89ec0-2b2d-4c65-a58d-663ea93cf350": "e3039dab-cbe9-49c6-8875-5f83d9fb214c"
+								}
+							},
+							{
+								"key": "scope",
+								"value": "openid email profile offline_access"
+							},
+							{
+								"key": "clientSecret",
+								"value": "EFcm-QM8R-exzET9kZyZV4I51L0-0M~0UK"
+							},
+							{
+								"key": "useBrowser",
+								"value": false
+							},
+							{
+								"key": "accessTokenUrl",
+								"value": "https://login.microsoftonline.com/{{tenantid}}/oauth2/token"
+							},
+							{
+								"key": "authUrl",
+								"value": "https://login.microsoftonline.com/{{tenantid}}/oauth2/authorize"
+							},
+							{
+								"key": "state",
+								"value": "1234"
+							},
+							{
+								"key": "clientId",
+								"value": "{{clientid}}"
+							},
+							{
+								"key": "redirect_uri",
+								"value": "https://localhost:44308/"
+							},
+							{
+								"key": "tokenName",
+								"value": "VenueToken"
+							},
+							{
+								"key": "addTokenTo",
+								"value": "header"
+							}
+						]
+					},
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": "oAuth2",
+					"helperAttributes": {
+						"id": "oAuth2",
+						"addTokenTo": "header",
+						"authUrl": "https://login.microsoftonline.com/{{tenantid}}/oauth2/authorize",
+						"accessTokenUrl": "https://login.microsoftonline.com/{{tenantid}}/oauth2/token",
+						"clientId": "{{clientid}}",
+						"clientSecret": "EFcm-QM8R-exzET9kZyZV4I51L0-0M~0UK",
+						"scope": "openid email profile offline_access"
+					},
+					"collectionId": "b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+					"pathVariables": {}
+				},
+				{
+					"id": "38e672ff-9cf7-4561-80b6-863ce05792b6",
+					"uid": "0-38e672ff-9cf7-4561-80b6-863ce05792b6",
+					"name": "https://localhost:44308/api/Venue/BookHall",
+					"url": "https://localhost:44308/api/Venue/BookHall",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiJlMzAzOWRhYi1jYmU5LTQ5YzYtODg3NS01ZjgzZDlmYjIxNGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYvIiwiaWF0IjoxNjIyMjE1MDE3LCJuYmYiOjE2MjIyMTUwMTcsImV4cCI6MTYyMjIxODkxNywiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhUQUFBQXg3RmZhci9kV1VRR1dYejZuNGsyYUtDb3krT2RQUzZrbzBmYUNWMUV5cm89IiwiYW1yIjpbInB3ZCJdLCJhcHBpZCI6ImUzMDM5ZGFiLWNiZTktNDljNi04ODc1LTVmODNkOWZiMjE0YyIsImFwcGlkYWNyIjoiMSIsImZhbWlseV9uYW1lIjoib25lIiwiZ2l2ZW5fbmFtZSI6InVzZXIiLCJpcGFkZHIiOiIxODMuODIuMTkwLjIxMyIsIm5hbWUiOiJ1c2Vyb25lIiwib2lkIjoiMDAwNzNiNTEtMjU0OS00YTNmLTliOTctMGNjOTAzOTU3NzQ3IiwicmgiOiIwLkFYMEFzeG9FU2l6Yk4wT01vcy1VR2lQamo2dWRBLVBweThaSmlIVmZnOW43SVV4OUFKSS4iLCJzY3AiOiJlbWFpbCBwcm9maWxlIFVzZXIuUmVhZCIsInN1YiI6Im9FYUdJT0JfX1RfNHgxNC1BVklPVUxyamgyYjBwd3FNX3VocUxzcVpHSlEiLCJ0aWQiOiI0YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQHNrc3ZlbnVlLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6InVzZXIxQHNrc3ZlbnVlLm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6IjJRRF9NOFFrOUVlTjNrTks5SGFjQXciLCJ2ZXIiOiIxLjAifQ.maS1zWcbRrDAYU2xb3S4XVXqCsHPnebxjCVqhVVMt1b26iEZGGeB5ZlMVJQTNDlIXBA-YMsEHKj3YGD4MqWlxdY_-M4LNconblDUz4XsU1_GD4-H4oOvIakJHRre7vO7DJgjdloBypiQJ-ucL9hUbMGOvuU9VJ5b32IiakhMJmNTuVJLiYs_SRaBlVmc_0hNSciH9EBD_okjiah41HQpPCN6c1yDGB2DNddwi9ue3nvQMVLjEEkd8sLMUMjCObGEPG77GspVSxf8OfEuvHBkNpshAh_msZcECyBO-wWODO-fNne6BYEobjcJ3VA3eY-eG8a8P8T_6AU1yk5t7E8tAQ"
+							}
+						]
+					},
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiJlMzAzOWRhYi1jYmU5LTQ5YzYtODg3NS01ZjgzZDlmYjIxNGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYvIiwiaWF0IjoxNjIyMjE1MDE3LCJuYmYiOjE2MjIyMTUwMTcsImV4cCI6MTYyMjIxODkxNywiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhUQUFBQXg3RmZhci9kV1VRR1dYejZuNGsyYUtDb3krT2RQUzZrbzBmYUNWMUV5cm89IiwiYW1yIjpbInB3ZCJdLCJhcHBpZCI6ImUzMDM5ZGFiLWNiZTktNDljNi04ODc1LTVmODNkOWZiMjE0YyIsImFwcGlkYWNyIjoiMSIsImZhbWlseV9uYW1lIjoib25lIiwiZ2l2ZW5fbmFtZSI6InVzZXIiLCJpcGFkZHIiOiIxODMuODIuMTkwLjIxMyIsIm5hbWUiOiJ1c2Vyb25lIiwib2lkIjoiMDAwNzNiNTEtMjU0OS00YTNmLTliOTctMGNjOTAzOTU3NzQ3IiwicmgiOiIwLkFYMEFzeG9FU2l6Yk4wT01vcy1VR2lQamo2dWRBLVBweThaSmlIVmZnOW43SVV4OUFKSS4iLCJzY3AiOiJlbWFpbCBwcm9maWxlIFVzZXIuUmVhZCIsInN1YiI6Im9FYUdJT0JfX1RfNHgxNC1BVklPVUxyamgyYjBwd3FNX3VocUxzcVpHSlEiLCJ0aWQiOiI0YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQHNrc3ZlbnVlLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6InVzZXIxQHNrc3ZlbnVlLm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6IjJRRF9NOFFrOUVlTjNrTks5SGFjQXciLCJ2ZXIiOiIxLjAifQ.maS1zWcbRrDAYU2xb3S4XVXqCsHPnebxjCVqhVVMt1b26iEZGGeB5ZlMVJQTNDlIXBA-YMsEHKj3YGD4MqWlxdY_-M4LNconblDUz4XsU1_GD4-H4oOvIakJHRre7vO7DJgjdloBypiQJ-ucL9hUbMGOvuU9VJ5b32IiakhMJmNTuVJLiYs_SRaBlVmc_0hNSciH9EBD_okjiah41HQpPCN6c1yDGB2DNddwi9ue3nvQMVLjEEkd8sLMUMjCObGEPG77GspVSxf8OfEuvHBkNpshAh_msZcECyBO-wWODO-fNne6BYEobjcJ3VA3eY-eG8a8P8T_6AU1yk5t7E8tAQ"
+					},
+					"collectionId": "b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+					"rawModeData": "{\r\n  \r\n  \"hallId\": \"D5E02F49-DFC0-4EF5-B969-5DF86FC37471\",\r\n  \"bookingDate\": \"2021-05-28T00:00:00\"\r\n}",
+					"pathVariables": {}
+				},
+				{
+					"id": "41325f75-783c-444c-be56-f264c4990964",
+					"uid": "0-41325f75-783c-444c-be56-f264c4990964",
+					"name": "https://login.microsoftonline.com/{{tenantid}}/oauth2/token",
+					"url": "https://login.microsoftonline.com/{{tenantid}}/oauth2/token",
+					"description": "get token",
+					"data": [
+						{
+							"key": "grant_type",
+							"value": "{{grant_type}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "{{clientid}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{clientsecret}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "code",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "params",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+					"pathVariables": {}
+				},
+				{
+					"id": "600a6d01-52f6-4a10-90c4-d8910ba864ec",
+					"uid": "0-600a6d01-52f6-4a10-90c4-d8910ba864ec",
+					"name": "https://localhost:44308/api/Venue/GetUserInfo",
+					"url": "https://localhost:44308/api/Venue/GetUserInfo",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+					"pathVariables": {}
+				},
+				{
+					"id": "63f2ed83-331f-41df-9f70-dbc57ae34eef",
+					"uid": "0-63f2ed83-331f-41df-9f70-dbc57ae34eef",
+					"name": "https://localhost:44308/api/Venue/CreateHall",
+					"url": "https://localhost:44308/api/Venue/CreateHall",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiJlMzAzOWRhYi1jYmU5LTQ5YzYtODg3NS01ZjgzZDlmYjIxNGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYvIiwiaWF0IjoxNjIyMjEyNTE2LCJuYmYiOjE2MjIyMTI1MTYsImV4cCI6MTYyMjIxNjQxNiwiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhUQUFBQXZ6MnpkT1Avc3cxQkFXSGljZ0lPMkVmRWpnVzJBY0RMWWRYRi9STWVxSE09IiwiYW1yIjpbInB3ZCJdLCJhcHBpZCI6ImUzMDM5ZGFiLWNiZTktNDljNi04ODc1LTVmODNkOWZiMjE0YyIsImFwcGlkYWNyIjoiMSIsImZhbWlseV9uYW1lIjoidXNlciIsImdpdmVuX25hbWUiOiJhZG1pbiIsImlwYWRkciI6IjE4My44Mi4xOTAuMjEzIiwibmFtZSI6ImFkbWluIiwib2lkIjoiNjQ5NzdkYzItZDBmMC00M2NiLWI2M2MtMWI2NDNlY2FlODQ3IiwicmgiOiIwLkFYMEFzeG9FU2l6Yk4wT01vcy1VR2lQamo2dWRBLVBweThaSmlIVmZnOW43SVV4OUFPdy4iLCJzY3AiOiJlbWFpbCBwcm9maWxlIFVzZXIuUmVhZCIsInN1YiI6IlpRRzktY2RUUDNLOG04MnRBSzUwYWU4d0k2ZDhvVkVPd0dEZWlwTHY5RTgiLCJ0aWQiOiI0YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYiLCJ1bmlxdWVfbmFtZSI6ImFkbWludXNlckBza3N2ZW51ZS5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJhZG1pbnVzZXJAc2tzdmVudWUub25taWNyb3NvZnQuY29tIiwidXRpIjoiaEl5dThSMmVVVS11S3BTOTRKb05BdyIsInZlciI6IjEuMCJ9.I0sXzUASEVh_Qt2KmTPzSFDLMVDVh6n5auzE3zyMV5CfDjWLATEdpfCQqONzo-nAIPaZdKCIZEaG3th6t5RJlwtsmS5PPXX_WyyUkgGxM0OQxMgXWbgaXeGTtzDqo1o1AdjZpsjnali88GugFIsb2ZFV4M_7C26sk7vGPVKCPac4bEJ5bcyWZuHs_9rKBxkHx1YishPsI1a-saW99am5Epb65tae4KjL9qCh2P51TQAxR-Uh-2CqzGzJ1-Nh_SPdXNoe_twF9HqXUD6SJ4thyGaAsA01Q9y-X2Y-hZ4N2835NKQw6K9a_5A9jrISEh_KlObdTi9nQ_P1OEey3QrmLg"
+							}
+						]
+					},
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiJlMzAzOWRhYi1jYmU5LTQ5YzYtODg3NS01ZjgzZDlmYjIxNGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYvIiwiaWF0IjoxNjIyMjEyNTE2LCJuYmYiOjE2MjIyMTI1MTYsImV4cCI6MTYyMjIxNjQxNiwiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhUQUFBQXZ6MnpkT1Avc3cxQkFXSGljZ0lPMkVmRWpnVzJBY0RMWWRYRi9STWVxSE09IiwiYW1yIjpbInB3ZCJdLCJhcHBpZCI6ImUzMDM5ZGFiLWNiZTktNDljNi04ODc1LTVmODNkOWZiMjE0YyIsImFwcGlkYWNyIjoiMSIsImZhbWlseV9uYW1lIjoidXNlciIsImdpdmVuX25hbWUiOiJhZG1pbiIsImlwYWRkciI6IjE4My44Mi4xOTAuMjEzIiwibmFtZSI6ImFkbWluIiwib2lkIjoiNjQ5NzdkYzItZDBmMC00M2NiLWI2M2MtMWI2NDNlY2FlODQ3IiwicmgiOiIwLkFYMEFzeG9FU2l6Yk4wT01vcy1VR2lQamo2dWRBLVBweThaSmlIVmZnOW43SVV4OUFPdy4iLCJzY3AiOiJlbWFpbCBwcm9maWxlIFVzZXIuUmVhZCIsInN1YiI6IlpRRzktY2RUUDNLOG04MnRBSzUwYWU4d0k2ZDhvVkVPd0dEZWlwTHY5RTgiLCJ0aWQiOiI0YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYiLCJ1bmlxdWVfbmFtZSI6ImFkbWludXNlckBza3N2ZW51ZS5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJhZG1pbnVzZXJAc2tzdmVudWUub25taWNyb3NvZnQuY29tIiwidXRpIjoiaEl5dThSMmVVVS11S3BTOTRKb05BdyIsInZlciI6IjEuMCJ9.I0sXzUASEVh_Qt2KmTPzSFDLMVDVh6n5auzE3zyMV5CfDjWLATEdpfCQqONzo-nAIPaZdKCIZEaG3th6t5RJlwtsmS5PPXX_WyyUkgGxM0OQxMgXWbgaXeGTtzDqo1o1AdjZpsjnali88GugFIsb2ZFV4M_7C26sk7vGPVKCPac4bEJ5bcyWZuHs_9rKBxkHx1YishPsI1a-saW99am5Epb65tae4KjL9qCh2P51TQAxR-Uh-2CqzGzJ1-Nh_SPdXNoe_twF9HqXUD6SJ4thyGaAsA01Q9y-X2Y-hZ4N2835NKQw6K9a_5A9jrISEh_KlObdTi9nQ_P1OEey3QrmLg"
+					},
+					"collectionId": "b4a71a72-eb7d-44f2-9188-9b08c1c0d7ba",
+					"rawModeData": "\r\n{\r\n  \r\n  \"hallName\": \"CoimbatoreHall\",\r\n  \"location\": \"bazar\",\r\n  \"price\": \"9500\",\r\n  \"tenantName\": \"TenantA\"\r\n}\r\n",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "fb3f9d0f-0258-4eb5-9f14-d768ec4b3854",
+			"name": "AzureAD",
+			"values": [
+				{
+					"key": "tenantid",
+					"value": "4a041ab3-db2c-4337-8ca2-cf941a23e38f",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "authorization_code",
+					"enabled": true
+				},
+				{
+					"key": "clientid",
+					"value": "e3039dab-cbe9-49c6-8875-5f83d9fb214c",
+					"enabled": true
+				},
+				{
+					"key": "clientsecret",
+					"value": "EFcm-QM8R-exzET9kZyZV4I51L0-0M~0UK",
+					"enabled": true
+				},
+				{
+					"key": "appIdUri",
+					"value": "https://localhost:44308/",
+					"enabled": true
+				},
+				{
+					"key": "accesstoken",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiJlMzAzOWRhYi1jYmU5LTQ5YzYtODg3NS01ZjgzZDlmYjIxNGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80YTA0MWFiMy1kYjJjLTQzMzctOGNhMi1jZjk0MWEyM2UzOGYvIiwiaWF0IjoxNjIyMTI0NDUwLCJuYmYiOjE2MjIxMjQ0NTAsImV4cCI6MTYyMjEyODM1MCwiYWNyIjoiMSIsImFpbyI6IkUyWmdZSGl4NExLSGtQMzdnMXBUSTVuVXhEWUpWVlhFdFY4Tk4zdHp6UFI5eWsyRGJIMEEiLCJhbXIiOlsicHdkIl0sImFwcGlkIjoiZTMwMzlkYWItY2JlOS00OWM2LTg4NzUtNWY4M2Q5ZmIyMTRjIiwiYXBwaWRhY3IiOiIxIiwiZmFtaWx5X25hbWUiOiJ1c2VyIiwiZ2l2ZW5fbmFtZSI6ImFkbWluIiwiaXBhZGRyIjoiMTgzLjgyLjE5MS4yMTUiLCJuYW1lIjoiYWRtaW4iLCJvaWQiOiI2NDk3N2RjMi1kMGYwLTQzY2ItYjYzYy0xYjY0M2VjYWU4NDciLCJyaCI6IjAuQVgwQXN4b0VTaXpiTjBPTW9zLVVHaVBqajZ1ZEEtUHB5OFpKaUhWZmc5bjdJVXg5QU93LiIsInNjcCI6ImVtYWlsIHByb2ZpbGUgVXNlci5SZWFkIiwic3ViIjoiWlFHOS1jZFRQM0s4bTgydEFLNTBhZTh3STZkOG9WRU93R0RlaXBMdjlFOCIsInRpZCI6IjRhMDQxYWIzLWRiMmMtNDMzNy04Y2EyLWNmOTQxYTIzZTM4ZiIsInVuaXF1ZV9uYW1lIjoiYWRtaW51c2VyQHNrc3ZlbnVlLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6ImFkbWludXNlckBza3N2ZW51ZS5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJiRFM2Ul9wRWRVbWl1VFVjNXZBWUF3IiwidmVyIjoiMS4wIn0.H34McKMFbGCdDBJ9DxN3zpqrM-zOqfSu2ZyY4Pt7idJkT8Rr_KJ44MH9MCQrqDz2oMuZkVUIU6Osd0t1gCpHLUwhFInMqErByRDQAM7kAis7ZrccLgq_7cMJvVdWvhgWwaK1_A6r1AHhLxx1SbUQHI1jlchezI-XXvBl-Lqh6gQKfxbFeEvwlBfz881ze2fCwV35Rdn3TCDgB3Hv7Us2BXwo60XeyENoxWHyn_uT8DSNgZYQYZw3N3eDllI_dzhEeZIC834lzKZGIuj7Gu8CTwguQVj_OizTPvwvBrEU94MRvm1NP8n1SP27eKrpKKGMSUTSFHDq_54C3_Nbn7PCcQ",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "eeffa6bc-c608-43ac-b21f-312c64149ac5",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
